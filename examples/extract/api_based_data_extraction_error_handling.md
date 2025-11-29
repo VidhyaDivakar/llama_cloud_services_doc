@@ -1,8 +1,8 @@
 # How to handle REST API Errors (400, 401, 494, 500)
 
-## Handle 400 - Invalid Schema or Bad Request
+## 1. Handle 400 - Invalid Schema or Bad Request
 
-Cause for the 4000 error - Wrong JSON structure, missing fields, invalid schema, or incorrect parameters.
+Cause for the 400 error - Wrong JSON structure, missing fields, invalid schema, or incorrect parameters.
 
 **How to handle:**
 
@@ -22,7 +22,9 @@ JSON
 }
 ```
 
-## Handle 401 - Missing/ Invalid API Key
+---
+
+## 2. Handle 401 - Missing/ Invalid API Key
 
 **Cause for the 401 error:** API key not provided, expired, wrong token, or wrong header format.
 
@@ -40,7 +42,9 @@ If response.status == 401:
     raise AuthenticationError("Invalid or missing API Key.") 
 ```
 
-## Handle 404 – Agent or Job Not Found
+_____________________________________________________________________________________________________________________
+
+## 3. Handle 404 – Agent or Job Not Found
 
 **Cause for this 404 error** :Invalid agent_id, job_id, or wrong URL path.
 
@@ -52,7 +56,7 @@ If response.status == 401:
 * Recreate the extraction agent if needed.
 
 ```
-JSON
+----JSON
 {
   "condition": {
     "type": "http_status",
@@ -71,6 +75,8 @@ JSON
   ]
 }
 ```
+
+---
 
 ## **4. Handle 500 – Internal Extraction Error**
 
